@@ -29,6 +29,7 @@ export const handler: S3Handler = async (event) => {
         try {
             const readStream = s3.getObject({Bucket, Key}).createReadStream();
 
+            // maybe check for timeout here?
             const lineReader = readline.createInterface({
                 input: readStream
             });

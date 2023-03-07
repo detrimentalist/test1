@@ -15,7 +15,7 @@ export const handler = ApiHandler(async (evt) => {
   const brandName = evt.pathParameters.brandName;
 
   //Get table name from environment variables
-  //Throw error if not configured, this will keep items in queue
+  //Throw error if not configured
   const tableName = process.env.tableName;
   if (tableName == undefined) {
     throw Error("Table name not defined.");
