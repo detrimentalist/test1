@@ -21,7 +21,6 @@ export const handler: SQSHandler = async (event) => {
     for (const record of event.Records) {
 
         let brandName = record.body;
-        console.log(`Message received: ${record}`);
 
         //since we need to retry the write to the DB, let's keep track of how many times we try,
         //and if we are successful
@@ -36,7 +35,7 @@ export const handler: SQSHandler = async (event) => {
             //if Item is undefined, this brand name did not exist in database, and has 0 hits
             let count = results.Item ? results.Item.num : 0;
 
-            console.log(`updating ${brandName} to ${count}`);
+            console.log(`updating ${brandName} to ${count + 1}`);
 
             //if the conditional check fails, we should retry
             await createOrIncrement(tableName, brandName, count).then(() => {
