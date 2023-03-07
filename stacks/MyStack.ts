@@ -44,13 +44,7 @@ export function API({ stack }: StackContext) {
   s3Bucket.attachPermissions([s3Bucket, s3NotificationQueue]);
 
   // create an endpoint where we can query the brands
-  /*const api = new Api(stack, "api", {
-    routes: {
-      "GET /brand/{brandName}": "packages/functions/src/query.handler",
-    },
-  }); */
-
- const api = new Api(stack, "api", {
+  const api = new Api(stack, "api", {
     routes: {
       "GET /brand/{brandName}": {
         function: {
