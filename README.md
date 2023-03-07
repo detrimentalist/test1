@@ -14,5 +14,5 @@ https://sst.dev/chapters/configure-the-aws-cli.html
 Once you have that set up you need to install the dependencies for this project, run
 "npm install" in the project root.
 
-When finished you can start the app locally using sst dev, or deploy it using sst deploy, 
+When finished you can start the app locally using "npx sst dev", or deploy it using "npx sst deploy", 
 check https://docs.sst.dev/quick-start for more!
